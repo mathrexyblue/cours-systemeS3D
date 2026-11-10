@@ -1,0 +1,48 @@
+1)Le C date de 1972, créé dans les Laboratoires Bell par Dennis Ritchie et Ken Thompson. Le langage C est inspiré du langage B et de BCPL.
+
+2)BCPL (Basic Combined Programming Language), BCPL est un langage de programmation qui permet de créer des compilateurs et des OS tel que TripOS ou Amiga Kickstart
+
+3)Oui, il y a le K&R C, ANSI C / C89 / C90, C95, C99, C11, C17 / C18, C23 (la plus récente qui date de 2024)
+
+4) Le langage C a été crée pour aider à développer Unix, Unix a été redévelopper pour s'adapter au C. Pour java, le lien est simplement que java s'inspire grandement du C notamment dans le typage et a ensuite évolué différemment.
+
+5)Un programme C est composé de deux parties, les déclarations (fonctions des bibliothèques…) et le corps du programme avec une fonction principale main
+
+6)le préprocesseur est un programme qui transforme le code source avant le compilateur. Par exemple la balise #include qui permet de passer le code du fichier inclus dans celui où est écrit la balise.
+
+7)C'est un fichier de configuration texte utilisé par le programme make pour automatiser l'exécution de tâches répétitives, principalement la compilation de logiciels
+
+8)les types de base sont:char ('A'), int (1), float(3.14f), double(3.14159).
+
+9)C'est un type de données défini par l'utilisateur qui permet de regrouper plusieurs variables de types différents (ou identiques) sous un même nom
+
+10)Un pointeur est une variable qui contient l'adresse mémoire d'un autre variable. 
+int x=4
+int *p=&x (&x = adresse mémoire de x, *p = pointeur)
+
+11)On utilise l'opérateur sizeof (ex : sizeof(variable))
+
+12)On peut utiliser un pointeur vers unsigned char
+int x = 1000;
+unsigned char *p = (unsigned char *)&x;
+on affiche chaque valeur de p (printf(%d,p[0));
+
+13)Pour lire la valeur d'un octet connaissant son adresse mémoire en C, il faut convertir cette adresse en un pointeur vers un type d'un octet (uint8_t * ou unsigned char ), puis utiliser l'opérateur de déréférencement () (ex : uint8_t valeur = (uint8_t)adresse)
+
+14)la case 1 du tableau est stocké à une adresse (ex:1000), la case 2 elle sera stocké à (adresse de la case 1+nb d'octet du type), par exemple un tableau d'entier qui commence à l'adresse 1000 sera stocké tab[0] -> 1000, tab[1] -> 1004 et ainsi de suite.
+
+15)Un tableau à deux dimensions est stocké en mémoire sous forme linéaire (une suite continue d'octets)
+
+16)l'entier est divisé en 2 octets et stockés comme pour un tableau à une dimension. Par exemple, pour 0x1234:
+Adresse    Valeur
+1000       0x12
+1001       0x34
+
+17)On manipule des chaînes de caractères en utilisant les opérateurs et les fonctions ou méthodes fournies par le langage de programmation choisi (ex : concaténation, slicing, remplacement..)
+
+18)Une chaine est un tableau de caractère qui peut contenir de l'UTF-8 mais comme des caractères sont codés sur 2 octets, certaines méthodes ne fonctionneront pas de la meme manière ex:
+é   t   é
+C3 A9 74 C3 A9
+strlen renverra 5 car il compte les octets.
+
+19)C'est un outil logiciel spécialisé qui permet de contrôler l'exécution d'un programme informatique, d'observer son comportement en temps réel et d'inspecter son état interne (comme le contenu des variables, la mémoire ou la pile d'appels) afin de détecter, analyser et corriger des erreurs (des bugs), il existe GDB pour le C et celui d'IntelliJ pour le Java
