@@ -1,0 +1,21 @@
+1)La récursion ou récursivité est un concept dans lequel une fonction s'appelle elle meme. Elle a besoin d'une condition d'arret sinon elle se répetera à l'infini.
+
+2)La récursion terminale est une récursion où la dernière ligne de la fonction est l'appel à cette fonction.
+
+3)Elle sert principalement à parcourir des structures arbrorescentes,  appliquer diviser pour régner ou simplifier l'écriture du code.
+
+4)Tous les langages ne permettent pas de faire de la récursion.
+
+5)Par exemple, en SQL il est impossible de faire de la récursivité.
+
+6)Il est possible de transformer un programme itératif en récursif: la condition d'arret devient la condition de boucle et à la fin de la boucle, la fonction s'appelle.
+
+7)Donc, il est aussi possible de faire l'inverse.
+
+8)Elle ralentit le programme mais c'est souvent négligeable.
+
+9)La récursivité a un impact assez important sur a mémoire car les multiples appels s'empilent jusqu'à l'appel final.
+
+10)Il ne fait pas de différence.
+
+11)Elles sont mises en pause et conserver dans un espace mémoire.
