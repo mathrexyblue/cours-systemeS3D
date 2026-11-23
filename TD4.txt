@@ -1,0 +1,65 @@
+1. Qu'est-ce qu'un langage régulier ?
+Un langage régulier est un langage formel qui peut être reconnu par un automate fini (une machine avec une mémoire finie et fixe).
+Exemple : sur l'alphabet {a, b}, l'ensemble des mots contenant un nombre pair de "a" (ex: bb, aa, abab).
+
+
+
+2. Qu'est-ce qu'un langage rationnel ?
+Un langage rationnel est un langage construit à partir des langages élémentaires (langage vide, mot vide et lettres de l'alphabet) en utilisant uniquement un nombre fini de fois trois opérations : l'union, la concaténation et l'étoile de Kleene (répétition).
+Exemple : la lettre "a" suivie d'un nombre quelconque de "b" (noté a.b*).
+
+
+
+3. Donnez un exemple simple de langage qui n'est pas régulier.
+Le langage L = { a^n b^n | n >= 0 }, c'est-à-dire un certain nombre de "a" suivis exactement du même nombre de "b" (ex: ab, aabb, aaabbb). Un automate fini ne peut pas compter un nombre arbitrairement grand de "a".
+Autre exemple : le langage des palindromes (ex: radar, kayak).
+
+
+
+4. Comment définit-on les expressions régulières de base avec « + », « . » et « * » ?
+- Cas de base : l'ensemble vide, le mot vide (epsilon) et chaque lettre de l'alphabet sont des expressions régulières.
+- Règles de construction (si E1 et E2 sont des expressions régulières) :
+ * Union (+) : (E1 + E2) signifie E1 ou E2.
+ * Concaténation (.) : (E1 . E2) signifie E1 suivi de E2 (le point est souvent omis).
+ * Étoile de Kleene (*) : (E1)* signifie E1 répété 0, 1 ou plusieurs fois.
+Exemple : (a + b)*.a.a désigne tous les mots sur {a, b} qui se terminent par "aa".
+
+
+
+5. Y a-t-il un lien entre les langages réguliers et les expressions régulières ?
+Oui, selon le théorème de Kleene (1956), les deux notions sont équivalentes : la classe des langages réguliers est strictement identique à celle des langages rationnels. Tout langage décrit par une expression régulière est reconnu par un automate fini, et inversement.
+
+
+
+6. Y a-t-il d'autres symboles couramment utilisés dans les expressions régulières de base ?
+Oui, en pratique on utilise des raccourcis syntaxiques :
+- . (point seul) : n'importe quel caractère unique.
+- | : remplace le + pour l'alternative (OU logique).
+- ? : 0 ou 1 occurrence (élément optionnel).
+- + : 1 ou plusieurs occurrences (équivalent à E.E*).
+- [...] : classe de caractères (ex: [0-9] pour un chiffre, [a-z] pour une lettre).
+- [^...] : classe inversée (tout caractère sauf ceux listés).
+- ^ et $ : début et fin de ligne ou de chaîne.
+- {n,m} : entre n et m répétitions.
+
+
+
+7. Qui a inventé les expressions régulières et quand ?
+Elles ont été inventées par le mathématicien américain Stephen Cole Kleene en 1951 (et publiées formellement en 1956) pour formaliser les automates finis. Elles ont ensuite été popularisées en informatique à la fin des années 1960 par Ken Thompson dans les outils Unix (QED, grep).
+
+
+
+8. À quoi servent les expressions régulières ?
+Elles servent à décrire des motifs de texte (patterns) pour automatiser le traitement des chaînes de caractères :
+- Rechercher et filtrer du texte dans des fichiers ou des logs (ex: commande grep).
+- Valider des saisies utilisateur (e-mail, numéro de téléphone, adresse IP).
+- Nettoyer, extraire ou remplacer des données en masse.
+- Découper le code source en unités lexicales lors de la compilation (analyse lexicale).
+
+
+
+9. Il y a différentes sortes d'expressions régulières, mais en quoi diffèrent-elles ?
+Elles diffèrent par les opérateurs disponibles et la nécessité d'échapper (avec \) certains caractères spéciaux :
+- Simple Regular Expressions (historique/obsolète) : utilisées dans les premiers outils Unix (ed, vieux grep). Elles n'ont que les opérateurs de base (^, $, ., *, [...]) et ne gèrent ni le OU (|), ni +, ni ?.
+- POSIX Basic Regular Expressions (BRE) : utilisées par défaut dans grep et sed. Les caractères de groupement et de répétition bornée doivent être échappés avec un antislash : \(ab\)\{2,3\}.
+- POSIX Extended Regular Expressions (ERE) : utilisées avec egrep ou grep -E. Elles ajoutent les opérateurs +, ?, | et permettent d'écrire les parenthèses et accolades directement sans antislash : (ab){2,3}.
